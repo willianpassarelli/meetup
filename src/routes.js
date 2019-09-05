@@ -8,6 +8,7 @@ import FileController from './app/controllers/FileController';
 import MeetupController from './app/controllers/MeetupController';
 
 import authMiddleware from './app/middlewares/auth';
+import SubscriptionController from './app/controllers/SubscriptionController';
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -23,6 +24,11 @@ routes.post('/meetups', MeetupController.store);
 routes.put('/meetups/:id', MeetupController.update);
 routes.get('/meetups', MeetupController.index);
 routes.delete('/meetups/:id', MeetupController.delete);
+
+routes.post(
+  '/subscriptions/:meetupId/subscriptions',
+  SubscriptionController.store
+);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
