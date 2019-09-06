@@ -24,7 +24,7 @@ O usuário não pode se inscrever em dois meetups que acontecem no mesmo horári
 
 Sempre que um usuário se inscrever no meetup, envie um e-mail ao organizador contendo os dados relacionados ao usuário inscrito.
 
-# Rotas
+## Rotas
 
 > Organizing
 
