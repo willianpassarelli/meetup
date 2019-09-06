@@ -26,12 +26,12 @@ Sempre que um usuário se inscrever no meetup, envie um e-mail ao organizador co
 
 # Rotas
 
-## Organizing
+> Organizing
 
 ### List (get)
 http://localhost:3333/organizing
 
-## Subscriptions
+> Subscriptions
 
 ### Create (post)
 http://localhost:3333/subscriptions/id/subscriptions
@@ -39,7 +39,7 @@ http://localhost:3333/subscriptions/id/subscriptions
 ### List (get)
 http://localhost:3333/subscriptions/
 
-## Meetups
+> Meetups
 
 ### List (get)
 http://localhost:3333/meetups?date=2019-09-08&page=1 ou http://localhost:3333/meetups
@@ -65,12 +65,12 @@ http://localhost:3333/meetups/id
 ### Delete (delete)
 http://localhost:3333/meetups/id
 
-## Files
+> Files
 
 ### Create (post)
 http://localhost:3333/files
 
-## Session
+> Session
 
 ### Create (post)
 http://localhost:3333/sessions
@@ -80,7 +80,7 @@ http://localhost:3333/sessions
 	"password": "123456"
 }
 ```
-## User
+> User
 
 ### Create (post)
 http://localhost:3333/users
