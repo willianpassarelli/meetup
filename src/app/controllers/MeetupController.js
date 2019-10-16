@@ -11,6 +11,35 @@ class MeetupController {
     const { page = 1 } = req.query;
     const where = {};
 
+    if (req.params.id) {
+      const meetup = await Meetup.findByPk(req.params.id, {
+        attributes: [
+          'id',
+          'title',
+          'description',
+          'location',
+          'date',
+          'user_id',
+        ],
+        include: [
+          {
+            model: File,
+            as: 'banner',
+            attributes: ['path', 'url'],
+          },
+        ],
+      });
+
+      const user_id = req.userId;
+
+      if (meetup.user_id !== user_id) {
+        return res
+          .status(401)
+          .json({ error: 'You are not the organizer of this meetup' });
+      }
+      return res.json(meetup);
+    }
+
     if (req.query.date) {
       const searchDate = parseISO(req.query.date);
       where.date = {
