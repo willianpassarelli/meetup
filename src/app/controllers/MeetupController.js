@@ -13,14 +13,6 @@ class MeetupController {
 
     if (req.params.id) {
       const meetup = await Meetup.findByPk(req.params.id, {
-        attributes: [
-          'id',
-          'title',
-          'description',
-          'location',
-          'date',
-          'user_id',
-        ],
         include: [
           {
             model: File,

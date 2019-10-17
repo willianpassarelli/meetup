@@ -27,7 +27,7 @@ module.exports = {
         unique: true,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1000),
         allowNull: false,
       },
       location: {
