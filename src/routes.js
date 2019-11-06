@@ -34,6 +34,7 @@ routes.post(
   '/subscriptions/:meetupId/subscriptions',
   SubscriptionController.store
 );
+routes.delete('/subscriptions/:subscriptionId', SubscriptionController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
