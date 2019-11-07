@@ -18,23 +18,32 @@ class SubscriptionController {
         {
           model: Meetup,
           as: 'meetup',
-          attributes: ['id', 'title', 'location', 'description', 'date'],
+          attributes: [
+            'id',
+            'past',
+            'title',
+            'location',
+            'description',
+            'date',
+          ],
+          include: [
+            {
+              model: File,
+              as: 'banner',
+              attributes: ['path', 'url'],
+            },
+            {
+              model: User,
+              as: 'user',
+              attributes: ['id', 'name'],
+            },
+          ],
           where: {
             date: {
               [Op.gt]: new Date(),
             },
           },
           order: ['date'],
-        },
-        {
-          model: File,
-          as: 'banner',
-          attributes: ['path', 'url'],
-        },
-        {
-          model: User,
-          as: 'user',
-          attributes: ['id', 'name'],
         },
       ],
     });
